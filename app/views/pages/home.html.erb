@@ -4,7 +4,7 @@
   <h2>Selamat Datang di Gigih Family Cathering <%= current_user.email %></h2>
 
     <% if current_user.admin? %>
-        <p> admin </p>
+        <%= link_to 'Kategori', categories_path %> <br><br>
     <% end %>
 
     <% if current_user.user? %>
