@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  root 'pages#home'
+
   resources :menus
   resources :categories
-  root 'pages#home'
+  resources :pages, only: [:home, :show]
+
   devise_for :users
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     

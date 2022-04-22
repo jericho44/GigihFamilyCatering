@@ -9,7 +9,33 @@
     <% end %>
 
     <% if current_user.user? %>
-        <p> user </p>
+        <h1>Daftar Menu</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Kategori</th>
+                    <th colspan='4' ></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @menus.each do |menu| %>
+                    <tr>
+                        <td><%= menu.name %></td>
+                        <td>Rp. <%= menu.price %></td>
+                        <% @categories.each do |category| %>
+                            <% if category.id == menu.category_id %>
+                                <td><%= category.name %></td>
+                            <% end %>
+                        <% end %>
+                        <td><%= link_to "Show", page_url(menu) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <br>
     <% end %>
 
 
