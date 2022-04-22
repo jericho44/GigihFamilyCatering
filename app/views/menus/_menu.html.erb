@@ -1,0 +1,27 @@
+<div id="<%= dom_id menu %>">
+  <p>
+    <strong>Name:</strong>
+    <%= menu.name %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= menu.price %>
+  </p>
+
+  <p>
+    <strong>Desciption:</strong>
+    <%= menu.desciption %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <% @categories.each do |category| %>
+      <% if menu.category_id == category.id %>
+        <%= category.name %>
+      <% end %>
+    <% end %>
+  </p>
+  
+
+</div>

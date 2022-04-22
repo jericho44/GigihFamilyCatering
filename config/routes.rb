@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :menus
   resources :categories
   root 'pages#home'
   devise_for :users
