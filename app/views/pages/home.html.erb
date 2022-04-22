@@ -1,7 +1,7 @@
 <h1>Gigih Family Cathering</h1>
 
 <% if current_user %>
-  <h2>Selamat Datang di Gigih Family Cathering <%= current_user.email %></h2>
+  <h2>Selamat Datang di Gigih Family Cathering <%= current_user.username %></h2>
 
     <% if current_user.admin? %>
         <%= link_to 'Menu', menus_path %> = 
