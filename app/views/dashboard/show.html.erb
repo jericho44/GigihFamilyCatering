@@ -1,0 +1,18 @@
+
+
+    <h2> Pesanan Dari <%= @order.email %> </h2>
+    <p> Total Order : Rp.<%= @order.total %> </p>
+    <p> Tanggal Order : <%= @order.created_at.strftime("%B %d, %Y") %> </p>
+    <p> Status Order : <%= @order.status %> </p>
+
+    <%= form_for @order.status, method: :PUT do |f| %>
+        <%= f.select :status, Order.statuses.keys, selected: @order.status %>
+        <%= f.submit "Update Status", class: "btn btn-primary" %>
+    <% end %>
+
+
+
+
+<br>
+<%= link_to "Back", dashboard_index_url %>
+

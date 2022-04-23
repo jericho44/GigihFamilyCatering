@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'dashboard/update'
   get 'cards/show'
   root 'pages#home'
 
@@ -13,6 +15,11 @@ Rails.application.routes.draw do
 
 
   resources :card, only: [:show]
+  resources :dashboard, only: [:index, :update, :show]
+  scope :dashboard do
+    put '/dashboard/:id' => 'dashboard#update', as: :update_order
+    get '/dashboard/:id' => 'dashboard#show', as: :show_order
+  end
 
   devise_for :users
   devise_scope :user do  

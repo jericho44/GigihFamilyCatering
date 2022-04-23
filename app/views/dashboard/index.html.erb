@@ -1,0 +1,29 @@
+<h1>Dashboard</h1>
+
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>Email</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Tanggal</th>
+        <th>Action</th>
+    </tr>
+</thead>
+<tbody>
+    <% @orders.each do |order| %>
+        <tr>
+            <td><%= order.email %></td>
+            <td>Rp.<%= order.total %></td>
+            <td><%= order.status %></td>
+            <td><%= order.created_at.strftime("%B %d, %Y") %></td>
+            <td><%= link_to "Show", dashboard_url(order) %></td>
+
+        </tr>
+    <% end %>
+</tbody>
+</table>
+    
+    <br>
+    <%= link_to "Back", root_path %>
+

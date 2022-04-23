@@ -5,7 +5,9 @@
 
     <% if current_user.admin? %>
         <%= link_to 'Menu', menus_path %> = 
-        <%= link_to 'Kategori', categories_path %> <br><br>
+        <%= link_to 'Kategori', categories_path %>  -
+        <%= link_to 'Dashboard', dashboard_index_url %> 
+        <br><br>
     <% end %>
 
     <% if current_user.user? %>
