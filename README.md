@@ -23,3 +23,17 @@ SQLite would work in development but we don't recommend running it in production
 ## Help
 
 If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Alternatively you can [ask in the community](https://replit.com/talk/ask). Feel free to report bugs [here](https://replit.com/bugs) and give us feedback [here](https://Replit/feedback).
+
+## local
+
+saya mengerjakan dilocal mungkin nanti kalau dijalankan di replit akan ada sedikit perubuahan
+
+## access devise admin
+
+registrasi terlebih dahulu, kemudian gunakan command "rails c" untuk mengaktifkan rails console
+setelah itu inputkan @user = @user.latest / @user.first
+kemudian ubah role dari user dengan  @user.role = 1
+by default user yang baru membuat akun akan memiliki role user / 0
+kemudian save dengan @user.save
+
+setelah itu anda bisa login kembali dengan email yang role nya sudah diganti menjadi admin
