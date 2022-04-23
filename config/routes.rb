@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+  get 'cards/show'
   root 'pages#home'
 
   resources :menus
   resources :categories
   resources :pages, only: [:home, :show]
+  resources :order_items, only: [:create, :update, :destroy]
+  scope :order_items do
+    get '/order_items/:id' => 'order_items#destroy', as: :destroy_order_item
+  end
+
+
+  resources :card, only: [:show]
 
   devise_for :users
   devise_scope :user do  

@@ -1,0 +1,31 @@
+<h1>Keranjang</h1>
+
+<% if @order_items.empty? %>
+    <p>Keranjangmu Kosong</p>
+<% else %>
+    <% @order_items.each do |order_item| %>
+    <h3> <%= order_item.menu.name %> </h3>
+        <h5>Rp.<%= order_item.menu.price %> </h5>
+
+        <%= form_for order_item  do |f| %>
+            <%= f.hidden_field :menu_id, value: order_item.menu.id %>
+            <%= f.number_field :quantity, min: 1, value: order_item.quantity.to_i %>
+            <%= f.submit "Update Card", class: "btn btn-primary" %>
+
+            <%= link_to "Delete", destroy_order_item_path(order_item), method: :delete , data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
+        <h2> Subtotal: Rp.<%= order_item.total %> </h2>
+
+
+    <% end %>
+
+    
+    <h4> Total: Rp.<%= current_order.subtotal %> </h4>
+<% end %>
+
+
+
+
+<br>
+<%= link_to "Back", root_path %>

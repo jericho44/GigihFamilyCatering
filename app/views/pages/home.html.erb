@@ -30,12 +30,23 @@
                             <% end %>
                         <% end %>
                         <td><%= link_to "Show", page_url(menu) %></td>
+
+                        <td>
+                            <%= form_for @order_item do |f| %>
+                                <%= f.hidden_field :menu_id, value: menu.id %>
+                                <%= f.number_field :quantity, min: 1, value: 1 %>
+                                <%= f.submit "Add to cart", class: "btn btn-primary" %>
+                            <% end %>
+                        </td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
 
         <br>
+
+        <%= link_to"#{current_order.order_items.count} item(s) in cart total Rp.#{current_order.subtotal}", cards_show_url %>
+
     <% end %>
 
 
