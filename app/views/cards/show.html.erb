@@ -4,8 +4,8 @@
     <p>Keranjangmu Kosong</p>
 <% else %>
     <% @order_items.each do |order_item| %>
-    <h3> <%= order_item.menu.name %> </h3>
-        <h5>Rp.<%= order_item.menu.price %> </h5>
+    <h1> <%= order_item.menu.name %> </h1>
+        <h3>Rp.<%= order_item.menu.price %> </h3>
 
         <%= form_for order_item  do |f| %>
             <%= f.hidden_field :menu_id, value: order_item.menu.id %>
@@ -15,13 +15,17 @@
             <%= link_to "Delete", destroy_order_item_path(order_item), method: :delete , data: { confirm: 'Are you sure?' } %>
         <% end %>
 
-        <h2> Subtotal: Rp.<%= order_item.total %> </h2>
+        <h4> Subtotal: Rp.<%= order_item.total %> </h4>
 
 
     <% end %>
 
-    
-    <h4> Total: Rp.<%= current_order.subtotal %> </h4>
+    <br><br><br>
+    <h2> Total: Rp.<%= current_order.subtotal %> </h2>
+    <br>
+
+    <%= link_to 'Checkout', checkout_path, class: "btn btn-primary" %>
+
 <% end %>
 
 

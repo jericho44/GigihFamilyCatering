@@ -34,6 +34,7 @@
                         <td>
                             <%= form_for @order_item do |f| %>
                                 <%= f.hidden_field :menu_id, value: menu.id %>
+                                <%= f.hidden_field :email, value: current_user.email %>
                                 <%= f.number_field :quantity, min: 1, value: 1 %>
                                 <%= f.submit "Add to cart", class: "btn btn-primary" %>
                             <% end %>

@@ -2,6 +2,16 @@ class Order < ApplicationRecord
     has_many :order_items
     before_save :set_subtotal
 
+    enum status:  {
+        New: 0,
+        Paid: 1,
+        Cancelled: 2,
+    }
+    after_initialize :set_defaults
+
+    def set_defaults
+        self.status ||= :New
+    end
 
 
     def subtotal

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
   scope :order_items do
     get '/order_items/:id' => 'order_items#destroy', as: :destroy_order_item
+    get '/checkout' => 'order_items#checkout', as: :checkout
   end
 
 
